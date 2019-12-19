@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Helmgast\Auth\Auth0;
+namespace Lavra\Flarum\Auth\Auth0;
 
 use Exception;
 use Flarum\Forum\Auth\Registration;
@@ -50,9 +50,9 @@ class Auth0AuthController implements RequestHandlerInterface
         $redirectUri = (string) $request->getAttribute('originalUri', $request->getUri())->withQuery('');
 
         $provider = new Auth0([
-            'account'      => $this->settings->get('helmgast-auth0.account'),
-            'clientId'     => $this->settings->get('helmgast-auth0.client_id'),
-            'clientSecret' => $this->settings->get('helmgast-auth0.client_secret'),
+            'account'      => $this->settings->get('lavra-auth0.account'),
+            'clientId'     => $this->settings->get('lavra-auth0.client_id'),
+            'clientSecret' => $this->settings->get('lavra-auth0.client_secret'),
             'redirectUri'  => $redirectUri
         ]);
 
@@ -93,7 +93,6 @@ class Auth0AuthController implements RequestHandlerInterface
             function (Registration $registration) use ($email, $user_array, $user, $provider, $token) {
                 $registration
                     ->provideTrustedEmail($email)
-                    ->provideAvatar(array_get($user_array, 'picture'))
                     ->suggestUsername($user->getNickname())
                     ->setPayload($user_array);
             }

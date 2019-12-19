@@ -8,25 +8,25 @@ import HeaderSecondary from 'flarum/components/HeaderSecondary';
 import SettingsPage from 'flarum/components/SettingsPage';
 import Session from 'flarum/Session';
 
-app.initializers.add('helmgast-auth0', () => {
+app.initializers.add('lavra-auth0', () => {
   extend(LogInButton.prototype, 'items', function(items) {
     items.add('auth0',
       <LogInButton
         className="Button Button--primary Button--block LogInButton--auth0"
         icon="fab fa-sign-in-alt"
         path="/auth/auth0">
-        {app.translator.trans('helmgast-auth0.forum.log_in.with_auth0_button')}
+        {app.translator.trans('lavra-auth0.forum.log_in.with_auth0_button')}
       </LogInButton>
     );
   });
-  
+
   extend(LogInButtons.prototype, 'items', function(items) {
     items.add('auth0',
       <LogInButton
         className="Button Button--primary Button--block LogInButton--auth0"
         icon="fab fa-github"
         path="/auth/auth0">
-        {app.translator.trans('helmgast-auth0.forum.log_in.with_auth0_button')}
+        {app.translator.trans('lavra-auth0.forum.log_in.with_auth0_button')}
       </LogInButton>
     );
   });
@@ -53,7 +53,6 @@ app.initializers.add('helmgast-auth0', () => {
   extend(SettingsPage.prototype, 'accountItems', function(items) {
     items.remove('changePassword');
     items.remove('changeEmail');
-    // Add link to Helmgast account page later
     return items;
   });
 
@@ -65,9 +64,9 @@ app.initializers.add('helmgast-auth0', () => {
 
   override(Session.prototype, 'logout', function () {
     // this will be bound to Session when run
-    // setting('helmgast-auth0.account')
+    // setting('lavra-auth0.account')
     let logout_url = app.forum.attribute('baseUrl') + '/logout?token=' + this.csrfToken;
-    const account = 'helmgast.eu'; //app.forum.attribute('helmgast-auth0.account');
+    const account = app.forum.attribute('lavra-auth0.account');
     if (account) {
       logout_url = `https://${account}.auth0.com/v2/logout?returnTo=${encodeURIComponent(logout_url)}`;
     }

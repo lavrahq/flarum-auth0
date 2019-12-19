@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-namespace Helmgast\Auth\Auth0;
+namespace Lavra\Flarum\Auth\Auth0;
 
 use Flarum\User\Event\Registered;
 use Flarum\Group\Group;
