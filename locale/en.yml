@@ -2,7 +2,7 @@ lavra-auth0:
   admin:
     settings:
       title: Auth0 Settings
-      account_label: Auth0 Account Name
+      account_label: Auth0 account name (including .eu)
       client_id_label: Auth0 Client ID
       client_secret_label: Auth0 Client Secret
   forum:

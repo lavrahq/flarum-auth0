@@ -27,8 +27,11 @@
         }
     },
     "extra": {
+        "branch-alias": {
+          "dev-master": "0.1.x-dev"
+        },
         "flarum-extension": {
-            "title": "Auth0 Login",
+            "title": "Lavra Auth0 Login",
             "icon": {
                 "name": "fas fa-sign-in-alt",
                 "backgroundColor": "#a00",
