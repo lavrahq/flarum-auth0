@@ -1,8 +1,8 @@
 <?php
 
 
-use Helmgast\Auth\Auth0\Auth0AuthController;
-use Helmgast\Auth\Auth0\AddGroupListener;
+use Lavra\Flarum\Auth\Auth0\Auth0AuthController;
+use Lavra\Flarum\Auth\Auth0\AddGroupListener;
 use Flarum\Extend;
 use Illuminate\Contracts\Events\Dispatcher;
 
